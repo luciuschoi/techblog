@@ -1,18 +1,21 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 set :application, 'techblog'
-set :repo_url, 'file:///Users/hyo/prj/staging_servers/apps/techblog.git'
-# set :repo_url, "git@github.com:luciuschoi/#{fetch(:application)}.git"
+
+# set :repo_url, 'file:///Users/hyo/prj/staging_servers/apps/techblog.git'
+set :repo_url, "git@github.com:luciuschoi/#{fetch(:application)}.git"
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 # Default deploy_to directory is /var/www/my_app_name
+
 set :user, 'deployer'
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :deploy_via,      :remote_cache
 
-set :scm, :git_copy
-set :with_submodules, false
-set :git_excludes, %w(config/database.yml config/secrets.yml test rspec)
+# set :scm, :git_copy
+# set :with_submodules, false
+# set :git_excludes, %w(config/database.yml config/secrets.yml test rspec)
 
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
